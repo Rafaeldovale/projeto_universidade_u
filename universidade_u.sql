@@ -2,7 +2,6 @@ create database universidade_u;
 
 use universidade_u;
 
-<<<<<<< HEAD
 insert into aluno(
 	nome, idade, sexo, endereco, telefone, data_incricao_curso, valor_pago_curso, ativo_sn
     )values(
@@ -34,6 +33,3 @@ insert into aluno(
 );
 
 
-=======
-show tables;
->>>>>>> 5dbeebb4de7dc7abe85d53aae9a4efd856b8479b
