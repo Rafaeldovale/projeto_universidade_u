@@ -22,3 +22,8 @@ DML (data Manipulation Language)
 
 DQL (data Query Language)
 	Select
+
+ Continuação do projeto:
+ -Cliente Universidade U:
+ 	Notamos que muitos alunos possuem mais de um telefone, para nós essa infromação é importante por que eventualmente precisamos entrar em contato com eles, como todos os contatos possíveis isso se torna maius fácil. Além disso precisamos também do e-mail e do cpf.
+  	Tem outra coisa também, a nossa univiersidade miniistra muuitos cursos a distância, gostaríamo de saber em quais estados temos mais alunos e quais cursos são mais vendidos, isso é muito importante, foi um pedido da diretoria.
