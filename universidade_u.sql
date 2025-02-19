@@ -1,17 +1,8 @@
 use universidade_u;
 
-select * from aluno;
+select idaluno, nome from aluno;
 select * from telefone;
+desc telefone; 
+alter table telefone add column fk_idaluno int;
 
-desc aluno;
-
-create table telefone(
-	idtelefone int auto_increment primary key,
-    numero varchar(20),
-    tipo char(3)
-    );
-    
-insert into telefone(numero, tipo) values('11 5555-2222', 'res');
-insert into telefone(numero, tipo) values('11 3333-4444', 'com');
-
-alter table aluno drop column telefone;
+alter table telefone add constraint fk_aluno_telefone foreign key(fk_idaluno) references aluno (idaluno);
