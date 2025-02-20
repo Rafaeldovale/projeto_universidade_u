@@ -1,14 +1,11 @@
 use universidade_u;
 
 select * from aluno; 
-select * from endereco;
 
-alter table aluno rename column logadouro to logradouro;
+alter table aluno drop column logradouro;
+alter table aluno drop column numero;
+alter table aluno drop column complemento;
+alter table aluno drop column bairro;
+alter table aluno drop column cidade;
+alter table aluno drop column estado;
 
-insert into endereco (
-	idendereco, logradouro, numero, complemento, bairro, cidade, estado, fk_idaluno
-    )
-select 
-	idaluno, logradouro, numero, complemento, bairro, cidade, estado, idaluno
-from 
-	aluno;
