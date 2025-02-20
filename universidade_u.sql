@@ -1,8 +1,16 @@
 use universidade_u;
 
-select idaluno, nome from aluno;
-select * from telefone;
-desc telefone; 
-alter table telefone add column fk_idaluno int;
-
-alter table telefone add constraint fk_aluno_telefone foreign key(fk_idaluno) references aluno (idaluno);
+CREATE TABLE ENDERECO (
+    idendereco int PRIMARY KEY,
+    logradouro varchar(100),
+    numero varchar(10),
+    complemento varchar(20),
+    bairro varchar(100),
+    cidade varchar(50),
+    estado char(2),
+    fk_idaluno int
+);
+ 
+ ALTER TABLE ENDERECO ADD CONSTRAINT fk_aluno_endereco
+    FOREIGN KEY (fk_idaluno)
+    REFERENCES ALUNO (idaluno);
