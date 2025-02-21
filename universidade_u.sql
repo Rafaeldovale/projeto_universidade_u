@@ -1,17 +1,17 @@
 use universidade_u;
 
-CREATE TABLE ALUNO_CURSO (
-    id_alunocurso int PRIMARY KEY,
-    fk_idaluno int,
-    fk_idcurso int
-);
+select * from aluno;
+select * from curso;
+
+insert into aluno_curso(fk_idaluno, fk_idcurso) values(1, 3 );
+insert into aluno_curso(fk_idaluno, fk_idcurso) values(1, 4 );
+insert into aluno_curso(fk_idaluno, fk_idcurso) values(2, 2 );
+insert into aluno_curso(fk_idaluno, fk_idcurso) values(3, 1 );
+insert into aluno_curso(fk_idaluno, fk_idcurso) values(3, 2 );
+insert into aluno_curso(fk_idaluno, fk_idcurso) values(3, 3 );
+insert into aluno_curso(fk_idaluno, fk_idcurso) values(3, 4 );
+insert into aluno_curso(fk_idaluno, fk_idcurso) values(4, 1 );
 
 select * from aluno_curso;
-desc aluno_curso;
 
-alter table aluno_curso add constraint fk_aluno_curso
-foreign key(fk_idaluno) references aluno(idaluno);
-
-alter table aluno_curso add constraint fk_curso_aluno
-foreign key(fk_idcurso) references curso(idcurso);
 
