@@ -1,11 +1,16 @@
 use universidade_u;
 
-select * from aluno; 
+CREATE TABLE CURSO (
+    idcurso int auto_increment PRIMARY KEY,
+    descricao varchar(50)
+);
 
-alter table aluno drop column logradouro;
-alter table aluno drop column numero;
-alter table aluno drop column complemento;
-alter table aluno drop column bairro;
-alter table aluno drop column cidade;
-alter table aluno drop column estado;
+select * from curso;
 
+insert into curso(descricao) values('Curso Completo do Desenvolvedor NodeJS e MongoDB');
+
+insert into curso(descricao) values('Desenvolvedor Multiplataforma Android e IOS');
+
+insert into curso(descricao) values('Desenvolvimento Web com Angular');
+
+insert into curso(descricao) values('Desenvolvimento Web Completo');
