@@ -1,16 +1,17 @@
 use universidade_u;
 
-CREATE TABLE CURSO (
-    idcurso int auto_increment PRIMARY KEY,
-    descricao varchar(50)
+CREATE TABLE ALUNO_CURSO (
+    id_alunocurso int PRIMARY KEY,
+    fk_idaluno int,
+    fk_idcurso int
 );
 
-select * from curso;
+select * from aluno_curso;
+desc aluno_curso;
 
-insert into curso(descricao) values('Curso Completo do Desenvolvedor NodeJS e MongoDB');
+alter table aluno_curso add constraint fk_aluno_curso
+foreign key(fk_idaluno) references aluno(idaluno);
 
-insert into curso(descricao) values('Desenvolvedor Multiplataforma Android e IOS');
+alter table aluno_curso add constraint fk_curso_aluno
+foreign key(fk_idcurso) references curso(idcurso);
 
-insert into curso(descricao) values('Desenvolvimento Web com Angular');
-
-insert into curso(descricao) values('Desenvolvimento Web Completo');
