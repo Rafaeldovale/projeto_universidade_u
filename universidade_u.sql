@@ -1,23 +1,14 @@
 use universidade_u;
 
-select * from endereco;
-desc endereco;
+select * from aluno;
 
-CREATE TABLE ENDERECO (
-    idendereco int PRIMARY KEY,
-    logradouro varchar(100) not null,
-    numero varchar(10) not null,
-    complemento varchar(20),
-    bairro varchar(100) not null,
-    cidade varchar(50) not null,
-    estado char(2) not null,
-    fk_idaluno int not null
-);
-alter table endereco  modify column logradouro varchar(100) not null;
-alter table endereco modify column numero varchar(10) not null;
-alter table endereco modify column bairro varchar(100) not null;
-alter table endereco modify column cidade varchar(50) not null;
-alter table endereco modify column estado char(2) not null;
-alter table endereco modify column fk_idaluno int not null;
+alter table aluno add constraint uc_aluno_cpf unique(cpf);
 
+
+insert into aluno (nome, idade, email, cpf, sexo, data_incricao_curso, valor_pago_curso, ativo_sn)
+values('Rosa', 25, 'rosa@teste.com.br', '444.111.111-12', 'F', '2019-01-05', 625, 1);
+
+alter table aluno add constraint uc_aluno_email unique(email);
+
+desc aluno;
 
