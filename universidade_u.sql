@@ -1,17 +1,18 @@
 use universidade_u;
 
-select * from aluno;
-select * from curso;
+select * from telefone;
 
-insert into aluno_curso(fk_idaluno, fk_idcurso) values(1, 3 );
-insert into aluno_curso(fk_idaluno, fk_idcurso) values(1, 4 );
-insert into aluno_curso(fk_idaluno, fk_idcurso) values(2, 2 );
-insert into aluno_curso(fk_idaluno, fk_idcurso) values(3, 1 );
-insert into aluno_curso(fk_idaluno, fk_idcurso) values(3, 2 );
-insert into aluno_curso(fk_idaluno, fk_idcurso) values(3, 3 );
-insert into aluno_curso(fk_idaluno, fk_idcurso) values(3, 4 );
-insert into aluno_curso(fk_idaluno, fk_idcurso) values(4, 1 );
+alter table telefone drop column tipo;
+alter table telefone add tipo enum('com', 'res', 'cel');
 
-select * from aluno_curso;
+update telefone set tipo = 'res' where idtelefone = 1;
+update telefone set tipo = 'cel' where idtelefone = 2;
+update telefone set tipo = 'com' where idtelefone = 3;
+update telefone set tipo = 'cel' where idtelefone = 4;
+update telefone set tipo = 'com' where idtelefone = 5;
+update telefone set tipo = 'cel' where idtelefone = 6;
+
+
+
 
 
