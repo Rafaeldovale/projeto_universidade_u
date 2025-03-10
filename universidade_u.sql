@@ -97,7 +97,7 @@ update aluno set data_nascimento = '1988-01-20' where idaluno = 6;
 */
 
 -- timestamp(marca temporal) início à partir da meia-noite do dia 01/01/1970
-
+/*
 select 
 	data_nascimento,
     curdate() as data_atual,
@@ -106,7 +106,24 @@ from
 	aluno;
     
 alter table aluno drop idade;
+*/
 
-select * from aluno;
+select 
+	idaluno,
+    nome,
+    data_nascimento,
+    extract(month from data_nascimento) as data_nasc_mes,
+    extract(day from data_nascimento) as data_nasc_dia,
     
+    curdate() as data_atual,
+    extract(month from curdate()) as data_atual_mes,
+    extract(day from curdate()) as data_atual_dia,
+    timestampdiff(year, data_nascimento, curdate()) as idade
+from 
+	aluno
+where 
+	extract(month from data_nascimento) = extract(month from curdate())
+    and extract(day from data_nascimento) = extract(day from curdate());
+    
+
     
