@@ -107,7 +107,7 @@ from
     
 alter table aluno drop idade;
 */
-
+/*
 select 
 	idaluno,
     nome,
@@ -124,6 +124,55 @@ from
 where 
 	extract(month from data_nascimento) = extract(month from curdate())
     and extract(day from data_nascimento) = extract(day from curdate());
+    */
     
+/*removendo os campos valor_pago_curso e data_inscricao_curso da
+tabela aluno para a tabela aluno_curso*/
 
+select data_incricao_curso, valor_pago_curso from aluno;
+select * from aluno_curso;
+
+alter table aluno_curso add data_inscricao_curso date;
+alter table aluno_curso add valor_pago_curso float(10,2);
+
+/*query de update com uma subquery para recuperar os dados*/
+select * from aluno;
+select idaluno, data_incricao_curso, valor_pago_curso from aluno where idaluno = 1;
+
+update 
+	aluno_curso
+set
+	data_inscricao_curso = (select data_incricao_curso from aluno where idaluno = 1),
+    valor_pago_curso = (select valor_pago_curso from aluno where idaluno = 1)
+where
+	fk_idaluno = 1;
+
+update 
+	aluno_curso
+set
+	data_inscricao_curso = (select data_incricao_curso from aluno where idaluno = 2),
+    valor_pago_curso = (select valor_pago_curso from aluno where idaluno = 2)
+where
+	fk_idaluno = 2;
+
+update 
+	aluno_curso
+set
+	data_inscricao_curso = (select data_incricao_curso from aluno where idaluno = 3),
+    valor_pago_curso = (select valor_pago_curso from aluno where idaluno = 3)
+where
+	fk_idaluno = 3;
+
+update 
+	aluno_curso
+set
+	data_inscricao_curso = (select data_incricao_curso from aluno where idaluno = 4),
+    valor_pago_curso = (select valor_pago_curso from aluno where idaluno = 4)
+where
+	fk_idaluno = 4;
+    
+    
+alter table aluno drop column data_incricao_curso;
+alter table aluno drop column valor_pago_curso;
+    
     
