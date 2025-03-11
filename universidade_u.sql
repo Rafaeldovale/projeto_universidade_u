@@ -176,7 +176,7 @@ where
 alter table aluno drop column data_incricao_curso;
 alter table aluno drop column valor_pago_curso;
 */
-    
+ /*   
 -- add default no campoo ativo_sn
 select * from aluno;
 
@@ -196,6 +196,17 @@ alter table aluno_curso modify column data_inscricao_curso datetime default curr
 
 insert into aluno_curso(fk_idaluno, fk_idcurso, data_inscricao_curso, valor_pago_curso)
 values(7, 3, curdate(), 720);
+*/
+
+select * from aluno_curso;
+
+alter table aluno_curso drop column id_alunocurso;
+
+alter table aluno_curso add constraint 
+pk_aluno_curso primary key(fk_idaluno, fk_idcurso, data_inscricao_curso);
+
+desc aluno_curso;
+
 
 
 
