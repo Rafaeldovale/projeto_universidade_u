@@ -94,10 +94,10 @@ update aluno set data_nascimento = '1982-01-07' where idaluno = 3;
 update aluno set data_nascimento = '1970-03-04' where idaluno = 4;
 update aluno set data_nascimento = '1985-12-05' where idaluno = 5;
 update aluno set data_nascimento = '1988-01-20' where idaluno = 6;
-*/
+
 
 -- timestamp(marca temporal) início à partir da meia-noite do dia 01/01/1970
-/*
+
 select 
 	data_nascimento,
     curdate() as data_atual,
@@ -106,8 +106,8 @@ from
 	aluno;
     
 alter table aluno drop idade;
-*/
-/*
+
+
 select 
 	idaluno,
     nome,
@@ -124,11 +124,11 @@ from
 where 
 	extract(month from data_nascimento) = extract(month from curdate())
     and extract(day from data_nascimento) = extract(day from curdate());
-    */
+    
     
 /*removendo os campos valor_pago_curso e data_inscricao_curso da
 tabela aluno para a tabela aluno_curso*/
-
+/*
 select data_incricao_curso, valor_pago_curso from aluno;
 select * from aluno_curso;
 
@@ -136,6 +136,7 @@ alter table aluno_curso add data_inscricao_curso date;
 alter table aluno_curso add valor_pago_curso float(10,2);
 
 /*query de update com uma subquery para recuperar os dados*/
+/*
 select * from aluno;
 select idaluno, data_incricao_curso, valor_pago_curso from aluno where idaluno = 1;
 
@@ -174,5 +175,29 @@ where
     
 alter table aluno drop column data_incricao_curso;
 alter table aluno drop column valor_pago_curso;
+*/
     
-    
+-- add default no campoo ativo_sn
+select * from aluno;
+
+alter table aluno modify column ativo_sn int default 1;
+
+insert into aluno(sexo, email, nome, cpf, data_nascimento) 
+values ('M', 'jorge@teste.com.br', 'Jorge', '444.111.111-15', '1989-01-06');
+
+insert into aluno(sexo, email,ativo_sn, nome, cpf, data_nascimento) 
+values ('M', 'jamilton@teste.com.br', 0, 'Jamilton', '444.111.111-55', '1987-07-07');
+
+-- modificando data_inscricao_curso com datetime default 
+
+select * from aluno_curso;
+
+alter table aluno_curso modify column data_inscricao_curso datetime default current_timestamp;
+
+insert into aluno_curso(fk_idaluno, fk_idcurso, data_inscricao_curso, valor_pago_curso)
+values(7, 3, curdate(), 720);
+
+
+
+
+
