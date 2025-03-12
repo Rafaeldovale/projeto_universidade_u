@@ -207,7 +207,7 @@ pk_aluno_curso primary key(fk_idaluno, fk_idcurso, data_inscricao_curso);
 
 desc aluno_curso;
 */
-
+/*
 CREATE TABLE PROJETO_FUNCIONARIO (
     codigo_projeto int,
     matricula_funcionario int,
@@ -254,4 +254,24 @@ insert into projeto_funcionario(
 )values (
 	3, 221, 'Notas Online', 'Bianca', 'Analista Administrativo', 150
 );
+*/
+
 select * from projeto_funcionario;
+
+-- anomalias de inserção (redundâncias de dados, dados inconsitentes
+
+insert into projeto_funcionario(
+	codigo_projeto, matricula_funcionario, nome_projeto, nome_funcionario, funcao_funcionario, horas_estimadas
+)values (
+	2, 353, 'Economia de Papel', 'João', 'Analista Financeiro', 25
+);
+
+-- Anomalias de exclusão (perder registros importantes)
+
+delete from projeto_funcionario where codigo_projeto = 3 and matricula_funcionario = 221;
+
+-- Anomalias na atualizacao (informacões inconsistentes)
+
+update projeto_funcionario set nome_projeto = 'Inscrição Online' 
+where codigo_projeto = 1 and matricula_funcionario = 110;
+-- 
