@@ -255,7 +255,7 @@ insert into projeto_funcionario(
 	3, 221, 'Notas Online', 'Bianca', 'Analista Administrativo', 150
 );
 */
-
+/*
 select * from projeto_funcionario;
 
 -- anomalias de inserção (redundâncias de dados, dados inconsitentes
@@ -275,3 +275,25 @@ delete from projeto_funcionario where codigo_projeto = 3 and matricula_funcionar
 update projeto_funcionario set nome_projeto = 'Inscrição Online' 
 where codigo_projeto = 1 and matricula_funcionario = 110;
 -- 
+*/
+
+/*Modificando o projeto para 2 forma normal */ 
+
+create table projeto(
+	idcodigo int auto_increment,
+    data_criacao datetime default current_timestamp,
+    nome varchar(100) not null,
+    constraint pk_projeto primary key(idcodigo)
+);
+
+desc projeto;
+
+create table funcionario(
+	idmatricula int auto_increment,
+    nome varchar(50) not null,
+    funcao varchar(50) not null,
+    telefone varchar(20),
+    constraint pk_funcionario primary key(idmatricula)
+);
+
+desc funcionario;
